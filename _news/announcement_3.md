@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2016-01-15 07:59:00-0400
+date: 2024-10-08
 inline: true
-related_posts: false
 ---
 
-A simple inline announcement with Markdown emoji! :sparkles: :smile:
+<!-- FIXME: This is the hal link. Update it when issue 9 is released -->
+Our paper <i><a href="https://hal.science/hal-04627413v2/">Owi: Performant Parallel Symbolic Execution Made Easy, an Application to WebAssembly</a></i> was accepted at <a href="https://programming-journal.org/">The Programming Journal</a>!
