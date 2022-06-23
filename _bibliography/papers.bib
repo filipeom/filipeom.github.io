@@ -11,17 +11,28 @@
   pdf    = {ist186411-dissertation.pdf}
 }
 
-@InProceedings{marques22,
-  abbr     = {ECOOP},
+@InProceedings{marques_et_al:LIPIcs.ECOOP.2022.11,
+  abbr = {ECOOP},
   selected = {true},
   bibtex_show = {true},
-  pdf      = {wasp-ecoop22.pdf},
-  author   = {Filipe Marques and Jos\'{e} Fragoso Santos and Nuno Santos and Pedro Ad\~{a}o},
-  title    = {{Concolic Execution for WebAssembly}},
+  pdf = {LIPIcs-ECOOP-2022-11.pdf}
+  author =	{Marques, Filipe and Fragoso Santos, Jos\'{e} and Santos, Nuno and Ad\~{a}o, Pedro},
+  title =	{{Concolic Execution for WebAssembly}},
   abstract = {
 WebAssembly (Wasm) is a new binary instruction format that allows targeted compiled code written in high-level languages to be executed by the browser's JavaScript engine with near-native speed. Despite its clear performance advantages, Wasm opens up the opportunity for bugs or security vulnerabilities to be introduced into Web programs, as pre-existing issues in programs written in unsafe languages can be transferred down to cross-compiled binaries. The source code of such binaries is frequently unavailable for static analysis, creating the demand for tools that can directly tackle Wasm code. Despite this potentially security-critical situation, there is still a noticeable lack of tool support for analysing Wasm binaries.  
 We present WASP, a symbolic execution engine for testing Wasm modules, which works directly on Wasm code and was built on top of a standard-compliant Wasm reference implementation. WASP was thoroughly evaluated: it was used to symbolically test a generic data-structure library for C and the Amazon Encryption SDK for C, demonstrating that it can find bugs and generate high-coverage testing inputs for real-world C applications; and was further tested against the Test-Comp benchmark, obtaining results comparable to well-established symbolic execution and testing tools for C.},
-  booktitle = {Proceedings of the 36th European Conference on Object-Oriented Programming,},
-  series    = {ECOOP},
-  year      = {2022}
+  booktitle =	{36th European Conference on Object-Oriented Programming (ECOOP 2022)},
+  pages =	{11:1--11:29},
+  series =	{Leibniz International Proceedings in Informatics (LIPIcs)},
+  ISBN =	{978-3-95977-225-9},
+  ISSN =	{1868-8969},
+  year =	{2022},
+  volume =	{222},
+  editor =	{Ali, Karim and Vitek, Jan},
+  publisher =	{Schloss Dagstuhl -- Leibniz-Zentrum f{\"u}r Informatik},
+  address =	{Dagstuhl, Germany},
+  URL =		{https://drops.dagstuhl.de/opus/volltexte/2022/16239},
+  URN =		{urn:nbn:de:0030-drops-162394},
+  doi =		{10.4230/LIPIcs.ECOOP.2022.11},
+  annote =	{Keywords: Concolic Testing, WebAssembly, Test-Generation, Testing C Programs}
 }
