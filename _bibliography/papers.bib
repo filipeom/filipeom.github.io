@@ -1,5 +1,7 @@
 ---
 ---
+
+% Theses
 @mastersthesis{marques21,
   abbr   = {MSc},
   selected = {false},
@@ -9,6 +11,44 @@
   school = {Instituto Superior T\'{e}cnico},
   year   = {2021},
   pdf    = {ist186411-dissertation.pdf}
+}
+
+% Posters
+@InProceedings{klee_workshop,
+  abbr={Poster},
+  selected={false},
+  author={Ramos, Frederico
+          and Marques, Filipe
+          and Ad\~{a}o, Pedro
+          and Santos, Nuno
+          and Santos, Jose Fragoso},
+  doi={},
+  booktitle={KLEE Workshop},
+  title={Poster: Empirical Study on Applying Program Analysis and Testing Tools to Student Code},
+  year={2022},
+  pdf={facts_klee_poster.pdf}
+}
+
+% Papers
+@InProceedings{10.1007/978-3-031-17196-3_17,
+  abbr="RV",
+  selected="true",
+  bibtex_show="true",
+  author="Marques, Filipe
+  and Morgado, Ant{\'o}nio
+  and Fragoso Santos, Jos{\'e}
+  and Janota, Mikol{\'a}{\v{s}}",
+  editor="Dang, Thao
+  and Stolz, Volker",
+  title="TestSelector: Automatic Test Suite Selection for Student Projects",
+  booktitle="Runtime Verification",
+  year="2022",
+  publisher="Springer International Publishing",
+  address="Cham",
+  pages="283--292",
+  abstract="Computer Science course instructors routinely have to create comprehensive test suites to assess programming assignments. The creation of such test suites is typically not trivial as it involves selecting a limited number of tests from a set of (semi-)randomly generated ones. Manual strategies for test selection do not scale when considering large testing inputs needed, for instance, for the assessment of algorithms exercises. To facilitate this process, we present TestSelector, a new framework for automatic selection of optimal test suites for student projects. The key advantage of TestSelector over existing approaches is that it is easily extensible with arbitrarily complex code coverage measures, not requiring these measures to be encoded into the logic of an exact constraint solver. We demonstrate the flexibility of TestSelector by extending it with support for a range of classical code coverage measures and using it to select test suites for a number of real-world algorithms projects, further showing that the selected test suites outperform randomly selected ones in finding bugs in students' code.",
+  isbn="978-3-031-17196-3",
+  URL = "https://link.springer.com/chapter/10.1007/978-3-031-17196-3_17"
 }
 
 @InProceedings{marques_et_al:LIPIcs.ECOOP.2022.11,
@@ -36,3 +76,4 @@ We present WASP, a symbolic execution engine for testing Wasm modules, which wor
   doi =		{10.4230/LIPIcs.ECOOP.2022.11},
   annote =	{Keywords: Concolic Testing, WebAssembly, Test-Generation, Testing C Programs}
 }
+
