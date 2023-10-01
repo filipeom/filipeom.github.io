@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Software Specification - Static Analysis Lab: C"
+title: "QS 2023/2024 - Static Analysis Lab: C"
 categories: code
 ---
 
