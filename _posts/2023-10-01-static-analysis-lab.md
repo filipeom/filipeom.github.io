@@ -91,10 +91,10 @@ Now that you have some context, let's proceed with setting up clang-analyzer and
 
 ## 1.2. Getting Started
 
-To begin, please download and extract the file provided on the class page (or [here](TODO)):
+To begin, please download and extract the file provided on the class page (or [here](https://filipeom.github.io/assets/zip/lab-static-analysis.zip)):
 
 ```bash
-$ unzip lab02.zip
+$ unzip lab-static-analysis.zip
 ```
 
 It's important to note that both clang-analyzer and Infer are currently only available on Unix-like operating systems, such as Linux and macOS. Therefore, if you are using Windows, we highly recommend using [WSL 2 (Windows Subsystem for Linux)](https://learn.microsoft.com/en-us/windows/wsl/install). Below, we provide step-by-step instructions on how to install clang-analyzer and Infer. Notably, for this lab, using Infer's Docker image is highly recommended as it comes pre-installed with both Infer and clang-analyzer (instructions on Docker here: [Getting Infer: Docker Image](#docker)).
@@ -132,7 +132,7 @@ $ brew install infer
 On Linux, or if you prefer not to use Homebrew, you can download the [latest release from GitHub](https://github.com/facebook/infer/releases/) and install it locally (recommended):
 
 ```bash
-$ cd lab02/infer
+$ cd lab-sa/infer
 $ curl -SLO "https://github.com/facebook/infer/releases/download/\
 v1.1.0/infer-linux64-v1.1.0.tar.xz"
 $ tar -xvf infer-linux64-v1.1.0.tar.xz && \
@@ -142,7 +142,7 @@ ln -s "$PWD/infer-linux64-v1.1.0/bin/infer" ~/.local/bin/infer
 Alternatively, if you wish to install Infer system-wide (install at your own risk):
 
 ```bash
-$ cd lab02/infer
+$ cd lab-sa/infer
 $ curl -SLO "https://github.com/facebook/infer/releases/download/\
 v1.1.0/infer-linux64-v1.1.0.tar.xz"
 $ sudo tar -C /opt -xvf infer-linux64-v1.1.0.tar.xz && \
@@ -175,26 +175,26 @@ $ systemctl --user start docker
 **Build & Run Infer.** Ensure that docker is running as explained in the paragraph above and then execute:
 
 ```bash
-$ cd lab02/infer/docker
+$ cd lab-sa/infer/docker
 docker build -t infer .
 # mount the local lab directory inside the image
-$ docker run --net=host -it -v $PWD/../../:/lab02 infer /bin/bash
+$ docker run --net=host -it -v $PWD/../../:/lab-sa infer /bin/bash
 # you should now be inside the docker container with a shell prompt,
 # e.g. "root@hostname:/#"
-$ cd lab02/exercise01/
+$ cd lab-sa/exercise01/
 $ infer -- clang -c hello.c
 ```
 
 # 2. Exercise 01: Hello, World!
 
-This exercise revolves around the program `hello.c`, which is provided alongside the project script in the `lab02/exercise01` directory.
+This exercise revolves around the program `hello.c`, which is provided alongside the project script in the `lab-sa/exercise01` directory.
 
 ### Infer
 
 To automatically detect bugs in the program, utilize Infer by executing the following command:
 
 ```bash
-$ cd lab02/exercise01
+$ cd lab-sa/exercise01
 $ infer run -- clang -c hello.c
 ```
 
@@ -244,7 +244,7 @@ In an Infer run, there are two key phases:
 
 This phased analysis is especially useful when continuously analysing big projects with multiple files.
 
-This exercise focuses on the program `proj01.c`, provided within the lab's files in the `lab02/exercise02` directory. The exercise has three objectives:
+This exercise focuses on the program `proj01.c`, provided within the lab's files in the `lab-sa/exercise02` directory. The exercise has three objectives:
 
 1. Analyse the `proj01.c` program using Infer and clang-analyzer.
 2. Manually identify all bugs in the program and report them in a YAML file.
@@ -357,12 +357,12 @@ Infer offers a significant advantage compared to other existing static analysis 
 
 ### Exercise Setup:
 
-1. Begin by accessing the provided `exercise03.zip` file in the `lab02/exercise03` directory.
+1. Begin by accessing the provided `exercise03.zip` file in the `lab-sa/exercise03` directory.
 2. In this exercise, we will utilise Infer to detect bugs in a feature branch of a toy project managed with Git. Follow these steps to run infer on two versions of the project and compare the results:
 
 ```bash
 # Navigate to the exercise directory
-$ cd lab02/exercise03
+$ cd lab-sa/exercise03
 
 # Unzip the exercise files
 $ unzip exercise03.zip
