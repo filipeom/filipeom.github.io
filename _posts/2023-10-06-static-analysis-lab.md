@@ -3,12 +3,11 @@ layout: post
 title: "QS 2023/2024 - Static Analysis Lab: C"
 categories: code
 ---
-
-# 1. Introduction
+# Introduction
 
 Before we dive into the lab exercises, let's briefly discuss some essential concepts.
 
-## 1.1. Background
+## Background
 
 **Nullptr Deference.** In C and C++ programming, a nullptr dereference occurs when a program attempts to access or manipulate a memory location using a null pointer (a pointer that doesn’t point to any valid memory address). This often leads to runtime errors, crashes, or unexpected behavior in your programs. Here’s an example:
 
@@ -89,7 +88,7 @@ In this code, the variable `x` is used in the `printf` statement before being in
 
 Now that you have some context, let's proceed with setting up clang-analyzer and Infer and working on the lab exercises.
 
-## 1.2. Getting Started
+## Getting Started
 
 To begin, please download and extract the file provided on the class page (or [here](https://filipeom.github.io/assets/zip/lab-static-analysis.zip)):
 
@@ -99,7 +98,7 @@ $ unzip lab-static-analysis.zip
 
 It's important to note that both clang-analyzer and Infer are currently only available on Unix-like operating systems, such as Linux and macOS. Therefore, if you are using Windows, we highly recommend using [WSL 2 (Windows Subsystem for Linux)](https://learn.microsoft.com/en-us/windows/wsl/install). Below, we provide step-by-step instructions on how to install clang-analyzer and Infer. Notably, for this lab, using Infer's Docker image is highly recommended as it comes pre-installed with both Infer and clang-analyzer (instructions on Docker here: [Getting Infer: Docker Image](#docker)).
 
-## 1.3. Getting Clang-Analyzer
+## Getting Clang-Analyzer
 
 To install clang-analyzer, you can follow these steps based on your operating system below.
 
@@ -121,7 +120,7 @@ On Ubuntu and similar Linux distributions, you can use the following command:
 $ sudo apt-get install clang clang-tools perl
 ```
 
-## 1.4. Getting Infer: Binary Releases
+## Getting Infer: Binary Releases
 
 On macOS, the simplest way to install Infer is by using Homebrew:
 
@@ -149,7 +148,7 @@ $ sudo tar -C /opt -xvf infer-linux64-v1.1.0.tar.xz && \
 sudo ln -s /opt/infer-linux64-v1.1.0/bin/infer /usr/local/bin/infer
 ```
 
-## 1.5. Getting Infer: Docker Image {#docker}
+## Getting Infer: Docker Image {#docker}
 
 You also have the option to use Infer's Docker image, conveniently included in the lab zipfile. However, if you plan to run Docker inside the lab computers, please be aware that you'll need to execute a few configuration commands before building Infer's Docker image. Comprehensive instructions for this can be found in our FAQ\footnote{\url{https://rnl.tecnico.ulisboa.pt/faq/\#docker}} (reproduced below for your convenience). If you are not utilizing lab computers, you may skip the subsequent paragraph (i.e., **Setup Docker**).
 
@@ -185,7 +184,7 @@ $ cd lab-sa/exercise01/
 $ infer -- clang -c hello.c
 ```
 
-# 2. Exercise 01: Hello, World!
+# Exercise 01: Hello, World!
 
 This exercise revolves around the program `hello.c`, which is provided alongside the project script in the `lab-sa/exercise01` directory.
 
@@ -235,7 +234,7 @@ Starting scan-view at: http://127.0.0.1:8181
 
 Running the command will start a web server at `http://127.0.0.1:8181` where you can examine the bug reports in a user-friendly interface. To access the reports, open a web browser and navigate to the provided URL.
 
-# 3. Exercise 02: Infer Workflow
+# Exercise 02: Infer Workflow
 
 In an Infer run, there are two key phases:
 
@@ -244,11 +243,12 @@ In an Infer run, there are two key phases:
 
 This phased analysis is especially useful when continuously analysing big projects with multiple files.
 
-This exercise focuses on the program `proj01.c`, provided within the lab's files in the `lab-sa/exercise02` directory. The exercise has three objectives:
+In this exercise, you'll work with two programs: `proj01.c` and `proj02.c`, which are provided in the `lab-sa/exercise02` directory. The exercise encompasses four main objectives:
 
 1. Analyse the `proj01.c` program using Infer and clang-analyzer.
 2. Manually identify all bugs in the program and report them in a YAML file.
 3. Correct the bugs and use Infer or clang-analyzer to verify that there are no remaining warnings.
+4. Repeat the entire process, including steps 1 to 3, for the `proj02.c` program.
 
 To accomplish these goals, follow these steps:
 
@@ -351,7 +351,7 @@ clang -c proj01.c
 
 After enabling each checker, carefully review the reported bugs. Determine whether these newly reported issues are true positives (actual problems) or false positives (incorrectly flagged). You can do this by examining the code and the specific checker warnings.
 
-# 4. Exercise 03: Continuous Integration with Infer
+# Optional: Continuous Integration with Infer
 
 Infer offers a significant advantage compared to other existing static analysis tools: it supports compositional analysis, allowing seamless integration into continuous integration (CI) pipelines. This integration provides developers with rapid feedback on their code. The goal of this exercise is to understand how Infer is currently applied in CI pipelines ([based on this tutorial](https://fbinfer.com/docs/steps-for-ci)).
 
