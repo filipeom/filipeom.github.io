@@ -3,6 +3,7 @@ layout: post
 title: "QS 2023/2024 - Static Analysis Lab: C"
 categories: code
 ---
+
 # Introduction
 
 Before we dive into the lab exercises, let's briefly discuss some essential concepts.
@@ -175,7 +176,7 @@ $ systemctl --user start docker
 
 ```bash
 $ cd lab-sa/infer/docker
-docker build -t infer .
+$ docker build -t infer .
 # mount the local lab directory inside the image
 $ docker run --net=host -it -v $PWD/../../:/lab-sa infer /bin/bash
 # you should now be inside the docker container with a shell prompt,
@@ -392,7 +393,7 @@ $ infer reportdiff --report-current report-feature.json \
 --report-previous infer-out/report.json
 ```
 
-Upon running the last command, you will find three files in the `infer-out/differential` will directory:
+Upon running the last command, you will find three files in the `infer-out/differential` directory:
 
 1. `introduces.json`: Contains issues found in the feature branch.
 2. `fixed.json`: Contains issues found in the master branch but not in the feature branch.
