@@ -202,9 +202,9 @@
 
 <h2 id="12-getting-started">1.2. Getting Started</h2>
 
-<p>To begin, please download and extract the file provided on the class page (or <a href="TODO">here</a>):</p>
+<p>To begin, please download and extract the file provided on the class page (or <a href="https://filipeom.github.io/assets/zip/lab-static-analysis.zip">here</a>):</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>unzip lab02.zip
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>unzip lab-static-analysis.zip
 </code></pre></div></div>
 
 <p>It’s important to note that both clang-analyzer and Infer are currently only available on Unix-like operating systems, such as Linux and macOS. Therefore, if you are using Windows, we highly recommend using <a href="https://learn.microsoft.com/en-us/windows/wsl/install" rel="external nofollow noopener" target="_blank">WSL 2 (Windows Subsystem for Linux)</a>. Below, we provide step-by-step instructions on how to install clang-analyzer and Infer. Notably, for this lab, using Infer’s Docker image is highly recommended as it comes pre-installed with both Infer and clang-analyzer (instructions on Docker here: <a href="#docker">Getting Infer: Docker Image</a>).</p>
@@ -238,7 +238,7 @@
 
 <p>On Linux, or if you prefer not to use Homebrew, you can download the <a href="https://github.com/facebook/infer/releases/" rel="external nofollow noopener" target="_blank">latest release from GitHub</a> and install it locally (recommended):</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>lab02/infer
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>lab-sa/infer
 <span class="nv">$ </span>curl <span class="nt">-SLO</span> <span class="s2">"https://github.com/facebook/infer/releases/download/</span><span class="se">\</span><span class="s2">
 v1.1.0/infer-linux64-v1.1.0.tar.xz"</span>
 <span class="nv">$ </span><span class="nb">tar</span> <span class="nt">-xvf</span> infer-linux64-v1.1.0.tar.xz <span class="o">&amp;&amp;</span> <span class="se">\</span>
@@ -247,7 +247,7 @@ v1.1.0/infer-linux64-v1.1.0.tar.xz"</span>
 
 <p>Alternatively, if you wish to install Infer system-wide (install at your own risk):</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>lab02/infer
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>lab-sa/infer
 <span class="nv">$ </span>curl <span class="nt">-SLO</span> <span class="s2">"https://github.com/facebook/infer/releases/download/</span><span class="se">\</span><span class="s2">
 v1.1.0/infer-linux64-v1.1.0.tar.xz"</span>
 <span class="nv">$ </span><span class="nb">sudo tar</span> <span class="nt">-C</span> /opt <span class="nt">-xvf</span> infer-linux64-v1.1.0.tar.xz <span class="o">&amp;&amp;</span> <span class="se">\</span>
@@ -276,25 +276,25 @@ v1.1.0/infer-linux64-v1.1.0.tar.xz"</span>
 
 <p><strong>Build &amp; Run Infer.</strong> Ensure that docker is running as explained in the paragraph above and then execute:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>lab02/infer/docker
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>lab-sa/infer/docker
 docker build <span class="nt">-t</span> infer <span class="nb">.</span>
 <span class="c"># mount the local lab directory inside the image</span>
-<span class="nv">$ </span>docker run <span class="nt">--net</span><span class="o">=</span>host <span class="nt">-it</span> <span class="nt">-v</span> <span class="nv">$PWD</span>/../../:/lab02 infer /bin/bash
+<span class="nv">$ </span>docker run <span class="nt">--net</span><span class="o">=</span>host <span class="nt">-it</span> <span class="nt">-v</span> <span class="nv">$PWD</span>/../../:/lab-sa infer /bin/bash
 <span class="c"># you should now be inside the docker container with a shell prompt,</span>
 <span class="c"># e.g. "root@hostname:/#"</span>
-<span class="nv">$ </span><span class="nb">cd </span>lab02/exercise01/
+<span class="nv">$ </span><span class="nb">cd </span>lab-sa/exercise01/
 <span class="nv">$ </span>infer <span class="nt">--</span> clang <span class="nt">-c</span> hello.c
 </code></pre></div></div>
 
 <h1 id="2-exercise-01-hello-world">2. Exercise 01: Hello, World!</h1>
 
-<p>This exercise revolves around the program <code class="language-plaintext highlighter-rouge">hello.c</code>, which is provided alongside the project script in the <code class="language-plaintext highlighter-rouge">lab02/exercise01</code> directory.</p>
+<p>This exercise revolves around the program <code class="language-plaintext highlighter-rouge">hello.c</code>, which is provided alongside the project script in the <code class="language-plaintext highlighter-rouge">lab-sa/exercise01</code> directory.</p>
 
 <h3 id="infer">Infer</h3>
 
 <p>To automatically detect bugs in the program, utilize Infer by executing the following command:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>lab02/exercise01
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>lab-sa/exercise01
 <span class="nv">$ </span>infer run <span class="nt">--</span> clang <span class="nt">-c</span> hello.c
 </code></pre></div></div>
 
@@ -345,7 +345,7 @@ Starting scan-view at: http://127.0.0.1:8181
 
 <p>This phased analysis is especially useful when continuously analysing big projects with multiple files.</p>
 
-<p>This exercise focuses on the program <code class="language-plaintext highlighter-rouge">proj01.c</code>, provided within the lab’s files in the <code class="language-plaintext highlighter-rouge">lab02/exercise02</code> directory. The exercise has three objectives:</p>
+<p>This exercise focuses on the program <code class="language-plaintext highlighter-rouge">proj01.c</code>, provided within the lab’s files in the <code class="language-plaintext highlighter-rouge">lab-sa/exercise02</code> directory. The exercise has three objectives:</p>
 
 <ol>
   <li>Analyse the <code class="language-plaintext highlighter-rouge">proj01.c</code> program using Infer and clang-analyzer.</li>
@@ -463,12 +463,12 @@ clang <span class="nt">-c</span> proj01.c
 <h3 id="exercise-setup">Exercise Setup:</h3>
 
 <ol>
-  <li>Begin by accessing the provided <code class="language-plaintext highlighter-rouge">exercise03.zip</code> file in the <code class="language-plaintext highlighter-rouge">lab02/exercise03</code> directory.</li>
+  <li>Begin by accessing the provided <code class="language-plaintext highlighter-rouge">exercise03.zip</code> file in the <code class="language-plaintext highlighter-rouge">lab-sa/exercise03</code> directory.</li>
   <li>In this exercise, we will utilise Infer to detect bugs in a feature branch of a toy project managed with Git. Follow these steps to run infer on two versions of the project and compare the results:</li>
 </ol>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Navigate to the exercise directory</span>
-<span class="nv">$ </span><span class="nb">cd </span>lab02/exercise03
+<span class="nv">$ </span><span class="nb">cd </span>lab-sa/exercise03
 
 <span class="c"># Unzip the exercise files</span>
 <span class="nv">$ </span>unzip exercise03.zip
@@ -541,7 +541,7 @@ clang <span class="nt">-c</span> proj01.c
     <footer class="fixed-bottom">
       <div class="container mt-0">
         © Copyright 2023 Filipe  Marques. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme.
-Last updated: October 01, 2023.
+Last updated: October 02, 2023.
       </div>
     </footer>
 
