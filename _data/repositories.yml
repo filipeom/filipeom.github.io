@@ -4,5 +4,6 @@ github_users:
 github_repos:
   - wasp-platform/wasp
   - wasp-platform/encoding
+  - OCamlPro/owi
+  - wasp-platform/waspc
   - filipeom/WhileVis
-  - filipeom/.files
