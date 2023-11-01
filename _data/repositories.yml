@@ -2,8 +2,8 @@ github_users:
   - filipeom
 
 github_repos:
-  - wasp-platform/wasp
-  - wasp-platform/encoding
+  - formalsec/wasp
+  - formalsec/encoding
   - OCamlPro/owi
-  - wasp-platform/waspc
+  - formalsec/waspc
   - filipeom/WhileVis
