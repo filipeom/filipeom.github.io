@@ -1,26 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://filipeom.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://filipeom.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-10-19T08:09:35+00:00</updated><id>https://filipeom.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
-</subtitle><entry><title type="html">QS 2023/2024 - Static Analysis Lab: C</title><link href="https://filipeom.github.io/blog/2023/static-analysis-lab/" rel="alternate" type="text/html" title="QS 2023/2024 - Static Analysis Lab: C" /><published>2023-10-02T00:00:00+00:00</published><updated>2023-10-02T00:00:00+00:00</updated><id>https://filipeom.github.io/blog/2023/static-analysis-lab</id><content type="html" xml:base="https://filipeom.github.io/blog/2023/static-analysis-lab/"><![CDATA[<h1 id="introduction">Introduction</h1>
-
-<p>Before we dive into the lab exercises, let’s briefly discuss some essential concepts.</p>
-
-<h2 id="background">Background</h2>
-
-<p><strong>Nullptr Deference.</strong> In C and C++ programming, a nullptr dereference occurs when a program attempts to access or manipulate a memory location using a null pointer (a pointer that doesn’t point to any valid memory address). This often leads to runtime errors, crashes, or unexpected behavior in your programs. Here’s an example:</p>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.filipeom.dev/feed.xml" rel="self" type="application/atom+xml"/><link href="https://www.filipeom.dev/" rel="alternate" type="text/html" hreflang="en"/><updated>2023-11-01T11:00:20+00:00</updated><id>https://www.filipeom.dev/feed.xml</id><title type="html">blank</title><entry><title type="html">QS 2023/2024 - Static Analysis Lab: C</title><link href="https://www.filipeom.dev/blog/2023/static-analysis-lab/" rel="alternate" type="text/html" title="QS 2023/2024 - Static Analysis Lab: C"/><published>2023-10-02T00:00:00+00:00</published><updated>2023-10-02T00:00:00+00:00</updated><id>https://www.filipeom.dev/blog/2023/static-analysis-lab</id><content type="html" xml:base="https://www.filipeom.dev/blog/2023/static-analysis-lab/"><![CDATA[<h1 id="introduction">Introduction</h1> <p>Before we dive into the lab exercises, let’s briefly discuss some essential concepts.</p> <h2 id="background">Background</h2> <p><strong>Nullptr Deference.</strong> In C and C++ programming, a nullptr dereference occurs when a program attempts to access or manipulate a memory location using a null pointer (a pointer that doesn’t point to any valid memory address). This often leads to runtime errors, crashes, or unexpected behavior in your programs. Here’s an example:</p> <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="kt">int</span><span class="o">*</span> <span class="n">ptr</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
 	<span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span> <span class="c1">// This is a null pointer dereference</span>
 	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
-<p>In the above code, we have a pointer <code class="language-plaintext highlighter-rouge">ptr</code> initialized to <code class="language-plaintext highlighter-rouge">NULL</code>. The line <code class="language-plaintext highlighter-rouge">*ptr = 42;</code> attempts to assign a value to the memory location pointed to by <code class="language-plaintext highlighter-rouge">ptr</code>, but since <code class="language-plaintext highlighter-rouge">ptr</code> is null, this results in a null pointer dereference.</p>
-
-<p><strong>Buffer Overflow.</strong> A buffer overflow occurs when a program writes more data to a buffer (e.g., an array) than it can hold, leading to data corruption and potentially security vulnerabilities. Here’s an example:</p>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</code></pre></div></div> <p>In the above code, we have a pointer <code class="language-plaintext highlighter-rouge">ptr</code> initialized to <code class="language-plaintext highlighter-rouge">NULL</code>. The line <code class="language-plaintext highlighter-rouge">*ptr = 42;</code> attempts to assign a value to the memory location pointed to by <code class="language-plaintext highlighter-rouge">ptr</code>, but since <code class="language-plaintext highlighter-rouge">ptr</code> is null, this results in a null pointer dereference.</p> <p><strong>Buffer Overflow.</strong> A buffer overflow occurs when a program writes more data to a buffer (e.g., an array) than it can hold, leading to data corruption and potentially security vulnerabilities. Here’s an example:</p> <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
@@ -28,13 +13,7 @@
     <span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">buffer</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
-<p>In this code, the <code class="language-plaintext highlighter-rouge">strcpy</code> function writes more characters to the <code class="language-plaintext highlighter-rouge">buffer</code> than it can accommodate, resulting in a buffer overflow.</p>
-
-<p><strong>Use-After-Free.</strong> Use-after-free errors occur when a program attempts to access memory that has been deallocated or freed. These errors can lead to undefined behavior. For example:</p>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</code></pre></div></div> <p>In this code, the <code class="language-plaintext highlighter-rouge">strcpy</code> function writes more characters to the <code class="language-plaintext highlighter-rouge">buffer</code> than it can accommodate, resulting in a buffer overflow.</p> <p><strong>Use-After-Free.</strong> Use-after-free errors occur when a program attempts to access memory that has been deallocated or freed. These errors can lead to undefined behavior. For example:</p> <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="kt">int</span><span class="o">*</span> <span class="n">ptr</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
@@ -42,122 +21,39 @@
     <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>  <span class="c1">// Use-after-free</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
-<p>In this code, the memory pointed to by <code class="language-plaintext highlighter-rouge">ptr</code> is freed before it is accessed, causing a use-after-free error.</p>
-
-<p><strong>Memory Leak.</strong> A memory leak happens when a program allocates memory but fails to deallocate it, causing memory to be unavailable for the rest of the program’s execution. For example:</p>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</code></pre></div></div> <p>In this code, the memory pointed to by <code class="language-plaintext highlighter-rouge">ptr</code> is freed before it is accessed, causing a use-after-free error.</p> <p><strong>Memory Leak.</strong> A memory leak happens when a program allocates memory but fails to deallocate it, causing memory to be unavailable for the rest of the program’s execution. For example:</p> <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="kt">int</span><span class="o">*</span> <span class="n">ptr</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
     <span class="c1">// Memory is not freed</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
-<p>In this code, memory is allocated but not freed, resulting in a memory leak.</p>
-
-<p><strong>Uninitialized Variables.</strong> Uninitialized variables are variables that are used before being assigned a value. This can lead to undefined behavior and unexpected results. Infer can identify uninitialized variable issues. For example:</p>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</code></pre></div></div> <p>In this code, memory is allocated but not freed, resulting in a memory leak.</p> <p><strong>Uninitialized Variables.</strong> Uninitialized variables are variables that are used before being assigned a value. This can lead to undefined behavior and unexpected results. Infer can identify uninitialized variable issues. For example:</p> <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
 <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="c1">// Uninitialized variable</span>
 <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
-<p>In this code, the variable <code class="language-plaintext highlighter-rouge">x</code> is used in the <code class="language-plaintext highlighter-rouge">printf</code> statement before being initialized, resulting in an uninitialized variable issue.</p>
-
-<p><strong>Static Analysis.</strong> Static analysis is a program analysis technique that examines the source code without actually executing it. It aims to identify potential issues, bugs, and vulnerabilities in the code before runtime. Static analysis tools can quickly provide valuable insights into code quality and safety. In this lab we will delve into the realm of static analysis, leveraging two cutting-edge tools designed for analysing C code:</p>
-
-<ul>
-  <li><strong>clang-analyzer:</strong> The <a href="https://clang-analyzer.llvm.org/scan-build.html">clang-analyzer</a> is a part of the Clang compiler suite that provides static analysis capabilities. It is designed to detect various types of programming errors, including null-pointer dereferences, resource leaks, and more.</li>
-  <li><strong>Infer:</strong> <a href="https://fbinfer.com/">Infer</a> is another powerful static analysis tool, similar to the <em>clang-analyzer</em>, that we will use in this lab to automatically detect programming errors.</li>
-</ul>
-
-<p>Now that you have some context, let’s proceed with setting up clang-analyzer and Infer and working on the lab exercises.</p>
-
-<h2 id="getting-started">Getting Started</h2>
-
-<p>To begin, please download and extract the file provided on the class page (or <a href="https://filipeom.github.io/assets/zip/lab-static-analysis.zip">here</a>):</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>unzip lab-static-analysis.zip
-</code></pre></div></div>
-
-<p>It’s important to note that both clang-analyzer and Infer are currently only available on Unix-like operating systems, such as Linux and macOS. Therefore, if you are using Windows, we highly recommend using <a href="https://learn.microsoft.com/en-us/windows/wsl/install">WSL 2 (Windows Subsystem for Linux)</a>. Below, we provide step-by-step instructions on how to install clang-analyzer and Infer. Notably, for this lab, using Infer’s Docker image is highly recommended as it comes pre-installed with both Infer and clang-analyzer (instructions on Docker here: <a href="#docker">Getting Infer: Docker Image</a>).</p>
-
-<h2 id="getting-clang-analyzer">Getting Clang-Analyzer</h2>
-
-<p>To install clang-analyzer, you can follow these steps based on your operating system below.</p>
-
-<p>It’s worth noting that if you opt for the recommended Infer Docker image, clang-analyzer comes pre-installed. You can find instructions for setting up the Infer Docker image here: <a href="#docker">Getting Infer: Docker Image</a>.</p>
-
-<h3 id="macos">macOS</h3>
-
-<p>Simply use Homebrew:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>brew <span class="nb">install </span>llvm
-</code></pre></div></div>
-
-<h3 id="ubuntu-and-ubuntu-like-linux-distributions">Ubuntu and Ubuntu-like Linux Distributions</h3>
-
-<p>On Ubuntu and similar Linux distributions, you can use the following command:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>clang clang-tools perl
-</code></pre></div></div>
-
-<h2 id="getting-infer-binary-releases">Getting Infer: Binary Releases</h2>
-
-<p>On macOS, the simplest way to install Infer is by using Homebrew:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>brew <span class="nb">install </span>infer
-</code></pre></div></div>
-
-<p>On Linux, or if you prefer not to use Homebrew, you can download the <a href="https://github.com/facebook/infer/releases/">latest release from GitHub</a> and install it locally (recommended):</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>lab-sa/infer
+</code></pre></div></div> <p>In this code, the variable <code class="language-plaintext highlighter-rouge">x</code> is used in the <code class="language-plaintext highlighter-rouge">printf</code> statement before being initialized, resulting in an uninitialized variable issue.</p> <p><strong>Static Analysis.</strong> Static analysis is a program analysis technique that examines the source code without actually executing it. It aims to identify potential issues, bugs, and vulnerabilities in the code before runtime. Static analysis tools can quickly provide valuable insights into code quality and safety. In this lab we will delve into the realm of static analysis, leveraging two cutting-edge tools designed for analysing C code:</p> <ul> <li><strong>clang-analyzer:</strong> The <a href="https://clang-analyzer.llvm.org/scan-build.html">clang-analyzer</a> is a part of the Clang compiler suite that provides static analysis capabilities. It is designed to detect various types of programming errors, including null-pointer dereferences, resource leaks, and more.</li> <li><strong>Infer:</strong> <a href="https://fbinfer.com/">Infer</a> is another powerful static analysis tool, similar to the <em>clang-analyzer</em>, that we will use in this lab to automatically detect programming errors.</li> </ul> <p>Now that you have some context, let’s proceed with setting up clang-analyzer and Infer and working on the lab exercises.</p> <h2 id="getting-started">Getting Started</h2> <p>To begin, please download and extract the file provided on the class page (or <a href="https://filipeom.github.io/assets/zip/lab-static-analysis.zip">here</a>):</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>unzip lab-static-analysis.zip
+</code></pre></div></div> <p>It’s important to note that both clang-analyzer and Infer are currently only available on Unix-like operating systems, such as Linux and macOS. Therefore, if you are using Windows, we highly recommend using <a href="https://learn.microsoft.com/en-us/windows/wsl/install">WSL 2 (Windows Subsystem for Linux)</a>. Below, we provide step-by-step instructions on how to install clang-analyzer and Infer. Notably, for this lab, using Infer’s Docker image is highly recommended as it comes pre-installed with both Infer and clang-analyzer (instructions on Docker here: <a href="#docker">Getting Infer: Docker Image</a>).</p> <h2 id="getting-clang-analyzer">Getting Clang-Analyzer</h2> <p>To install clang-analyzer, you can follow these steps based on your operating system below.</p> <p>It’s worth noting that if you opt for the recommended Infer Docker image, clang-analyzer comes pre-installed. You can find instructions for setting up the Infer Docker image here: <a href="#docker">Getting Infer: Docker Image</a>.</p> <h3 id="macos">macOS</h3> <p>Simply use Homebrew:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>brew <span class="nb">install </span>llvm
+</code></pre></div></div> <h3 id="ubuntu-and-ubuntu-like-linux-distributions">Ubuntu and Ubuntu-like Linux Distributions</h3> <p>On Ubuntu and similar Linux distributions, you can use the following command:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>clang clang-tools perl
+</code></pre></div></div> <h2 id="getting-infer-binary-releases">Getting Infer: Binary Releases</h2> <p>On macOS, the simplest way to install Infer is by using Homebrew:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>brew <span class="nb">install </span>infer
+</code></pre></div></div> <p>On Linux, or if you prefer not to use Homebrew, you can download the <a href="https://github.com/facebook/infer/releases/">latest release from GitHub</a> and install it locally (recommended):</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>lab-sa/infer
 <span class="nv">$ </span>curl <span class="nt">-SLO</span> <span class="s2">"https://github.com/facebook/infer/releases/download/</span><span class="se">\</span><span class="s2">
 v1.1.0/infer-linux64-v1.1.0.tar.xz"</span>
 <span class="nv">$ </span><span class="nb">tar</span> <span class="nt">-xvf</span> infer-linux64-v1.1.0.tar.xz <span class="o">&amp;&amp;</span> <span class="se">\</span>
 <span class="nb">ln</span> <span class="nt">-s</span> <span class="s2">"</span><span class="nv">$PWD</span><span class="s2">/infer-linux64-v1.1.0/bin/infer"</span> ~/.local/bin/infer
-</code></pre></div></div>
-
-<p>Alternatively, if you wish to install Infer system-wide (install at your own risk):</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>lab-sa/infer
+</code></pre></div></div> <p>Alternatively, if you wish to install Infer system-wide (install at your own risk):</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>lab-sa/infer
 <span class="nv">$ </span>curl <span class="nt">-SLO</span> <span class="s2">"https://github.com/facebook/infer/releases/download/</span><span class="se">\</span><span class="s2">
 v1.1.0/infer-linux64-v1.1.0.tar.xz"</span>
 <span class="nv">$ </span><span class="nb">sudo tar</span> <span class="nt">-C</span> /opt <span class="nt">-xvf</span> infer-linux64-v1.1.0.tar.xz <span class="o">&amp;&amp;</span> <span class="se">\</span>
 <span class="nb">sudo ln</span> <span class="nt">-s</span> /opt/infer-linux64-v1.1.0/bin/infer /usr/local/bin/infer
-</code></pre></div></div>
-
-<h2 id="docker">Getting Infer: Docker Image</h2>
-
-<p>You also have the option to use Infer’s Docker image, conveniently included in the lab zipfile. However, if you plan to run Docker inside the lab computers, please be aware that you’ll need to execute a few configuration commands before building Infer’s Docker image. Comprehensive instructions for this can be found in our FAQ\footnote{\url{https://rnl.tecnico.ulisboa.pt/faq/#docker}} (reproduced below for your convenience). If you are not utilizing lab computers, you may skip the subsequent paragraph (i.e., <strong>Setup Docker</strong>).</p>
-
-<p><strong>Setup Docker.</strong> The following command should only be executed <em>once</em>:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>setup-docker
-</code></pre></div></div>
-
-<p>Then, add the following lines to your <code class="language-plaintext highlighter-rouge">~/.bashrc</code> file (changes take place after opening a new terminal).</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$HOME</span>/bin:<span class="nv">$PATH</span>
+</code></pre></div></div> <h2 id="docker">Getting Infer: Docker Image</h2> <p>You also have the option to use Infer’s Docker image, conveniently included in the lab zipfile. However, if you plan to run Docker inside the lab computers, please be aware that you’ll need to execute a few configuration commands before building Infer’s Docker image. Comprehensive instructions for this can be found in our FAQ\footnote{\url{https://rnl.tecnico.ulisboa.pt/faq/#docker}} (reproduced below for your convenience). If you are not utilizing lab computers, you may skip the subsequent paragraph (i.e., <strong>Setup Docker</strong>).</p> <p><strong>Setup Docker.</strong> The following command should only be executed <em>once</em>:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>setup-docker
+</code></pre></div></div> <p>Then, add the following lines to your <code class="language-plaintext highlighter-rouge">~/.bashrc</code> file (changes take place after opening a new terminal).</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$HOME</span>/bin:<span class="nv">$PATH</span>
 <span class="nb">export </span><span class="nv">DOCKER_HOST</span><span class="o">=</span>unix://<span class="nv">$XDG_RUNTIME_DIR</span>/docker.sock
-</code></pre></div></div>
-
-<p>Lastly, after every login users must run the following command to use docker:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>systemctl <span class="nt">--user</span> start docker
-</code></pre></div></div>
-
-<p><strong>Build &amp; Run Infer.</strong> Ensure that docker is running as explained in the paragraph above and then execute:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>lab-sa/infer/docker
+</code></pre></div></div> <p>Lastly, after every login users must run the following command to use docker:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>systemctl <span class="nt">--user</span> start docker
+</code></pre></div></div> <p><strong>Build &amp; Run Infer.</strong> Ensure that docker is running as explained in the paragraph above and then execute:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>lab-sa/infer/docker
 <span class="nv">$ </span>docker build <span class="nt">-t</span> infer <span class="nb">.</span>
 <span class="c"># mount the local lab directory inside the image</span>
 <span class="nv">$ </span>docker run <span class="nt">--net</span><span class="o">=</span>host <span class="nt">-it</span> <span class="nt">-v</span> <span class="nv">$PWD</span>/../../:/lab-sa infer /bin/bash
@@ -165,34 +61,10 @@ v1.1.0/infer-linux64-v1.1.0.tar.xz"</span>
 <span class="c"># e.g. "root@hostname:/#"</span>
 <span class="nv">$ </span><span class="nb">cd </span>lab-sa/exercise01/
 <span class="nv">$ </span>infer <span class="nt">--</span> clang <span class="nt">-c</span> hello.c
-</code></pre></div></div>
-
-<h1 id="exercise-01-hello-world">Exercise 01: Hello, World!</h1>
-
-<p>This exercise revolves around the program <code class="language-plaintext highlighter-rouge">hello.c</code>, which is provided alongside the project script in the <code class="language-plaintext highlighter-rouge">lab-sa/exercise01</code> directory.</p>
-
-<h3 id="infer">Infer</h3>
-
-<p>To automatically detect bugs in the program, utilize Infer by executing the following command:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>lab-sa/exercise01
+</code></pre></div></div> <h1 id="exercise-01-hello-world">Exercise 01: Hello, World!</h1> <p>This exercise revolves around the program <code class="language-plaintext highlighter-rouge">hello.c</code>, which is provided alongside the project script in the <code class="language-plaintext highlighter-rouge">lab-sa/exercise01</code> directory.</p> <h3 id="infer">Infer</h3> <p>To automatically detect bugs in the program, utilize Infer by executing the following command:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>lab-sa/exercise01
 <span class="nv">$ </span>infer run <span class="nt">--</span> clang <span class="nt">-c</span> hello.c
-</code></pre></div></div>
-
-<p>Once the Infer run is successful, you can delve into more comprehensive reports generated by Infer by running <code class="language-plaintext highlighter-rouge">infer explore</code> from the same directory.</p>
-
-<h3 id="clang-analyzer">Clang-Analyzer</h3>
-
-<p>To automatically identify and analyze potential bugs in your program, you can utilize <code class="language-plaintext highlighter-rouge">scan-build</code>. Follow these steps to execute the analysis:</p>
-
-<p>First, run the following command:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>scan-build clang <span class="nt">-c</span> hello.c
-</code></pre></div></div>
-
-<p>Upon running the command, you should see an output similar to the following:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hello.c:5:8: warning: Dereference of null pointer <span class="o">(</span>loaded from variable
+</code></pre></div></div> <p>Once the Infer run is successful, you can delve into more comprehensive reports generated by Infer by running <code class="language-plaintext highlighter-rouge">infer explore</code> from the same directory.</p> <h3 id="clang-analyzer">Clang-Analyzer</h3> <p>To automatically identify and analyze potential bugs in your program, you can utilize <code class="language-plaintext highlighter-rouge">scan-build</code>. Follow these steps to execute the analysis:</p> <p>First, run the following command:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>scan-build clang <span class="nt">-c</span> hello.c
+</code></pre></div></div> <p>Upon running the command, you should see an output similar to the following:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hello.c:5:8: warning: Dereference of null pointer <span class="o">(</span>loaded from variable
 	<span class="s1">'ptr'</span><span class="o">)</span> <span class="o">[</span>core.NullDereference]
   <span class="k">*</span>ptr <span class="o">=</span> 42<span class="p">;</span>
    ~~~ ^
@@ -201,68 +73,15 @@ scan-build: Analysis run complete.
 scan-build: 1 bug found.
 scan-build: Run <span class="s1">'scan-view /tmp/scan-build-2023-10-01-094934-161859-1'</span>
 	to examine bug reports.
-</code></pre></div></div>
-
-<p>The output provides an initial summary of detected issues. To gain a more comprehensive understanding of these issues, you can examine the bug reports using <code class="language-plaintext highlighter-rouge">scan-view</code>. Execute the following command, replacing the path with the appropriate directory:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>scan-view /tmp/scan-build-2023-10-01-094934-161859-1
+</code></pre></div></div> <p>The output provides an initial summary of detected issues. To gain a more comprehensive understanding of these issues, you can examine the bug reports using <code class="language-plaintext highlighter-rouge">scan-view</code>. Execute the following command, replacing the path with the appropriate directory:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>scan-view /tmp/scan-build-2023-10-01-094934-161859-1
 <span class="c"># Which produces a webserver at 127.0.0.1:8181 to examine bug reports</span>
 Starting scan-view at: http://127.0.0.1:8181
   Use Ctrl-C to exit.
-</code></pre></div></div>
-
-<p>Running the command will start a web server at <code class="language-plaintext highlighter-rouge">http://127.0.0.1:8181</code> where you can examine the bug reports in a user-friendly interface. To access the reports, open a web browser and navigate to the provided URL.</p>
-
-<h1 id="exercise-02-infer-workflow">Exercise 02: Infer Workflow</h1>
-
-<p>In an Infer run, there are two key phases:</p>
-
-<ul>
-  <li><strong>Capture Phase:</strong> During this phase, Infer captures compilation commands to translate the files for analysis into Infer’s internal intermediate language.</li>
-  <li><strong>Analysis Phase:</strong> In this phase, Infer conducts a separate analysis of each function and method. If Infer encounters an error while analyzing a method or function, it stops the analysis for that specific entity but continues to analyze others.</li>
-</ul>
-
-<p>This phased analysis is especially useful when continuously analysing big projects with multiple files.</p>
-
-<p>In this exercise, you’ll work with two programs: <code class="language-plaintext highlighter-rouge">proj01.c</code> and <code class="language-plaintext highlighter-rouge">proj02.c</code>, which are provided in the <code class="language-plaintext highlighter-rouge">lab-sa/exercise02</code> directory. The exercise encompasses four main objectives:</p>
-
-<ol>
-  <li>Analyse the <code class="language-plaintext highlighter-rouge">proj01.c</code> program using Infer and clang-analyzer.</li>
-  <li>Manually identify all bugs in the program and report them in a YAML file.</li>
-  <li>Correct the bugs and use Infer or clang-analyzer to verify that there are no remaining warnings.</li>
-  <li>Repeat the entire process, including steps 1 to 3, for the <code class="language-plaintext highlighter-rouge">proj02.c</code> program.</li>
-</ol>
-
-<p>To accomplish these goals, follow these steps:</p>
-
-<h2 id="infer-1">Infer</h2>
-<h3 id="step-1-run-infer">Step 1: Run Infer</h3>
-
-<p>Capture the C project using:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>infer capture <span class="nt">--</span> clang <span class="nt">-c</span> proj01.c
-</code></pre></div></div>
-
-<p>Analyse the project with Infer:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>infer analyze
-</code></pre></div></div>
-
-<p>Alternatively, to run both phases in a single command, use:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>infer run <span class="nt">--</span> clang <span class="nt">-c</span> proj01.c
-</code></pre></div></div>
-
-<h3 id="step-2-identify-and-report-bugs">Step 2: Identify and Report Bugs</h3>
-
-<p>Examine the report generated by Infer more closely with:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>infer explore
-</code></pre></div></div>
-
-<p>Create a YAML file (e.g., <code class="language-plaintext highlighter-rouge">bug_report.yml</code>) based on the <code class="language-plaintext highlighter-rouge">report.yml</code> template provided in the directory to report the identified bugs. For example:</p>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">report</span><span class="pi">:</span>
+</code></pre></div></div> <p>Running the command will start a web server at <code class="language-plaintext highlighter-rouge">http://127.0.0.1:8181</code> where you can examine the bug reports in a user-friendly interface. To access the reports, open a web browser and navigate to the provided URL.</p> <h1 id="exercise-02-infer-workflow">Exercise 02: Infer Workflow</h1> <p>In an Infer run, there are two key phases:</p> <ul> <li><strong>Capture Phase:</strong> During this phase, Infer captures compilation commands to translate the files for analysis into Infer’s internal intermediate language.</li> <li><strong>Analysis Phase:</strong> In this phase, Infer conducts a separate analysis of each function and method. If Infer encounters an error while analyzing a method or function, it stops the analysis for that specific entity but continues to analyze others.</li> </ul> <p>This phased analysis is especially useful when continuously analysing big projects with multiple files.</p> <p>In this exercise, you’ll work with two programs: <code class="language-plaintext highlighter-rouge">proj01.c</code> and <code class="language-plaintext highlighter-rouge">proj02.c</code>, which are provided in the <code class="language-plaintext highlighter-rouge">lab-sa/exercise02</code> directory. The exercise encompasses four main objectives:</p> <ol> <li>Analyse the <code class="language-plaintext highlighter-rouge">proj01.c</code> program using Infer and clang-analyzer.</li> <li>Manually identify all bugs in the program and report them in a YAML file.</li> <li>Correct the bugs and use Infer or clang-analyzer to verify that there are no remaining warnings.</li> <li>Repeat the entire process, including steps 1 to 3, for the <code class="language-plaintext highlighter-rouge">proj02.c</code> program.</li> </ol> <p>To accomplish these goals, follow these steps:</p> <h2 id="infer-1">Infer</h2> <h3 id="step-1-run-infer">Step 1: Run Infer</h3> <p>Capture the C project using:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>infer capture <span class="nt">--</span> clang <span class="nt">-c</span> proj01.c
+</code></pre></div></div> <p>Analyse the project with Infer:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>infer analyze
+</code></pre></div></div> <p>Alternatively, to run both phases in a single command, use:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>infer run <span class="nt">--</span> clang <span class="nt">-c</span> proj01.c
+</code></pre></div></div> <h3 id="step-2-identify-and-report-bugs">Step 2: Identify and Report Bugs</h3> <p>Examine the report generated by Infer more closely with:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>infer explore
+</code></pre></div></div> <p>Create a YAML file (e.g., <code class="language-plaintext highlighter-rouge">bug_report.yml</code>) based on the <code class="language-plaintext highlighter-rouge">report.yml</code> template provided in the directory to report the identified bugs. For example:</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">report</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">bug</span><span class="pi">:</span>
       <span class="na">type</span><span class="pi">:</span> <span class="s">Nullptr Dereference</span>
       <span class="na">lineno</span><span class="pi">:</span> <span class="m">42</span>
@@ -272,79 +91,13 @@ Starting scan-view at: http://127.0.0.1:8181
       <span class="na">type</span><span class="pi">:</span> <span class="s">Example Bug Type</span>
       <span class="na">lineno</span><span class="pi">:</span> <span class="m">67</span>
       <span class="na">class</span><span class="pi">:</span> <span class="s">fn</span>
-</code></pre></div></div>
-
-<p>In the YAML file, specify the bug type, line number, and class (refer to <code class="language-plaintext highlighter-rouge">report.yml</code> for available class options). This structured report will help in documenting and addressing the identified issues effectively (and will also be in the class project).</p>
-
-<h3 id="step-3-bug-resolution">Step 3: Bug Resolution</h3>
-
-<ul>
-  <li>Address all the identified bugs.</li>
-  <li>Create a new version of the file (e.g., <code class="language-plaintext highlighter-rouge">proj01-fixed.c</code>), ensuring that all discovered bugs are fixed, and Infer no longer produces any warnings.</li>
-</ul>
-
-<h2 id="clang-analyzer-1">Clang-analyzer</h2>
-
-<p>One benefit of the clang-analyzer is that is comes with many default analysis checkers, but also optin performance and bug checkers, for more information refer to <code class="language-plaintext highlighter-rouge">scan-build --help</code>. In this exercise we will play with different checkers to discover more bugs.</p>
-
-<h3 id="step-1-initial-analysis">Step 1: Initial Analysis</h3>
-
-<p>Begin by analyzing the project using the default checkers with the following command:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>scan-build clang <span class="nt">-c</span> proj01.c
-</code></pre></div></div>
-
-<p>While reviewing the report, annotate the discovered bugs for further investigation.</p>
-
-<h3 id="step-2-enabling-additional-checkers">Step 2: Enabling Additional Checkers</h3>
-
-<p>Now, progressively enable the following checkers one at a time to uncover potential issues:</p>
-
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">optin.portability.UnixAPI</code>: Finds implementation-defined behavior in UNIX/Posix functions.</li>
-</ol>
-
-<p>To enable this checker, execute the following command:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>scan-build <span class="nt">-enable-checker</span> optin.portability.UnixAPI clang <span class="nt">-c</span> proj01.c
-</code></pre></div></div>
-
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">security.insecureAPI.strcpy</code>: Warn on uses of the ‘strcpy’ and ‘strcat’ functions.</li>
-</ol>
-
-<p>To enable this checker, use the following command:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>scan-build <span class="nt">-enable-checker</span> security.insecureAPI.strcpy clang <span class="nt">-c</span> proj01.c
-</code></pre></div></div>
-
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">security.insecureAPI.DeprecatedOrUnsafeBufferHandling</code>: Warn on uses of unsafe or deprecated buffer manipulating functions</li>
-</ol>
-
-<p>To enable this checker, execute the following command:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>scan-build <span class="se">\</span>
+</code></pre></div></div> <p>In the YAML file, specify the bug type, line number, and class (refer to <code class="language-plaintext highlighter-rouge">report.yml</code> for available class options). This structured report will help in documenting and addressing the identified issues effectively (and will also be in the class project).</p> <h3 id="step-3-bug-resolution">Step 3: Bug Resolution</h3> <ul> <li>Address all the identified bugs.</li> <li>Create a new version of the file (e.g., <code class="language-plaintext highlighter-rouge">proj01-fixed.c</code>), ensuring that all discovered bugs are fixed, and Infer no longer produces any warnings.</li> </ul> <h2 id="clang-analyzer-1">Clang-analyzer</h2> <p>One benefit of the clang-analyzer is that is comes with many default analysis checkers, but also optin performance and bug checkers, for more information refer to <code class="language-plaintext highlighter-rouge">scan-build --help</code>. In this exercise we will play with different checkers to discover more bugs.</p> <h3 id="step-1-initial-analysis">Step 1: Initial Analysis</h3> <p>Begin by analyzing the project using the default checkers with the following command:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>scan-build clang <span class="nt">-c</span> proj01.c
+</code></pre></div></div> <p>While reviewing the report, annotate the discovered bugs for further investigation.</p> <h3 id="step-2-enabling-additional-checkers">Step 2: Enabling Additional Checkers</h3> <p>Now, progressively enable the following checkers one at a time to uncover potential issues:</p> <ol> <li><code class="language-plaintext highlighter-rouge">optin.portability.UnixAPI</code>: Finds implementation-defined behavior in UNIX/Posix functions.</li> </ol> <p>To enable this checker, execute the following command:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>scan-build <span class="nt">-enable-checker</span> optin.portability.UnixAPI clang <span class="nt">-c</span> proj01.c
+</code></pre></div></div> <ol> <li><code class="language-plaintext highlighter-rouge">security.insecureAPI.strcpy</code>: Warn on uses of the ‘strcpy’ and ‘strcat’ functions.</li> </ol> <p>To enable this checker, use the following command:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>scan-build <span class="nt">-enable-checker</span> security.insecureAPI.strcpy clang <span class="nt">-c</span> proj01.c
+</code></pre></div></div> <ol> <li><code class="language-plaintext highlighter-rouge">security.insecureAPI.DeprecatedOrUnsafeBufferHandling</code>: Warn on uses of unsafe or deprecated buffer manipulating functions</li> </ol> <p>To enable this checker, execute the following command:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>scan-build <span class="se">\</span>
 <span class="nt">-enable-checker</span> security.insecureAPI.DeprecatedOrUnsafeBufferHandling <span class="se">\</span>
 clang <span class="nt">-c</span> proj01.c
-</code></pre></div></div>
-
-<h3 id="step-3-review-and-evaluate-reported-bugs">Step 3: Review and Evaluate Reported Bugs</h3>
-
-<p>After enabling each checker, carefully review the reported bugs. Determine whether these newly reported issues are true positives (actual problems) or false positives (incorrectly flagged). You can do this by examining the code and the specific checker warnings.</p>
-
-<h1 id="optional-continuous-integration-with-infer">Optional: Continuous Integration with Infer</h1>
-
-<p>Infer offers a significant advantage compared to other existing static analysis tools: it supports compositional analysis, allowing seamless integration into continuous integration (CI) pipelines. This integration provides developers with rapid feedback on their code. The goal of this exercise is to understand how Infer is currently applied in CI pipelines (<a href="https://fbinfer.com/docs/steps-for-ci">based on this tutorial</a>).</p>
-
-<h3 id="exercise-setup">Exercise Setup:</h3>
-
-<ol>
-  <li>Begin by accessing the provided <code class="language-plaintext highlighter-rouge">exercise03.zip</code> file in the <code class="language-plaintext highlighter-rouge">lab-sa/exercise03</code> directory.</li>
-  <li>In this exercise, we will utilise Infer to detect bugs in a feature branch of a toy project managed with Git. Follow these steps to run infer on two versions of the project and compare the results:</li>
-</ol>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Navigate to the exercise directory</span>
+</code></pre></div></div> <h3 id="step-3-review-and-evaluate-reported-bugs">Step 3: Review and Evaluate Reported Bugs</h3> <p>After enabling each checker, carefully review the reported bugs. Determine whether these newly reported issues are true positives (actual problems) or false positives (incorrectly flagged). You can do this by examining the code and the specific checker warnings.</p> <h1 id="optional-continuous-integration-with-infer">Optional: Continuous Integration with Infer</h1> <p>Infer offers a significant advantage compared to other existing static analysis tools: it supports compositional analysis, allowing seamless integration into continuous integration (CI) pipelines. This integration provides developers with rapid feedback on their code. The goal of this exercise is to understand how Infer is currently applied in CI pipelines (<a href="https://fbinfer.com/docs/steps-for-ci">based on this tutorial</a>).</p> <h3 id="exercise-setup">Exercise Setup:</h3> <ol> <li>Begin by accessing the provided <code class="language-plaintext highlighter-rouge">exercise03.zip</code> file in the <code class="language-plaintext highlighter-rouge">lab-sa/exercise03</code> directory.</li> <li>In this exercise, we will utilise Infer to detect bugs in a feature branch of a toy project managed with Git. Follow these steps to run infer on two versions of the project and compare the results:</li> </ol> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Navigate to the exercise directory</span>
 <span class="nv">$ </span><span class="nb">cd </span>lab-sa/exercise03
 
 <span class="c"># Unzip the exercise files</span>
@@ -373,21 +126,7 @@ clang <span class="nt">-c</span> proj01.c
 <span class="c"># Compare the reports between feature and master branches</span>
 <span class="nv">$ </span>infer reportdiff <span class="nt">--report-current</span> report-feature.json <span class="se">\</span>
 <span class="nt">--report-previous</span> infer-out/report.json
-</code></pre></div></div>
-
-<p>Upon running the last command, you will find three files in the <code class="language-plaintext highlighter-rouge">infer-out/differential</code> directory:</p>
-
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">introduces.json</code>: Contains issues found in the feature branch.</li>
-  <li><code class="language-plaintext highlighter-rouge">fixed.json</code>: Contains issues found in the master branch but not in the feature branch.</li>
-  <li><code class="language-plaintext highlighter-rouge">preexisting.json</code>: Contains issues found in both branches.</li>
-</ol>
-
-<h3 id="addressing-bugs">Addressing Bugs:</h3>
-
-<p>Next, follow these step to address the bugs introduced in the new feature branch:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Save the master branch's analysis report</span>
+</code></pre></div></div> <p>Upon running the last command, you will find three files in the <code class="language-plaintext highlighter-rouge">infer-out/differential</code> directory:</p> <ol> <li><code class="language-plaintext highlighter-rouge">introduces.json</code>: Contains issues found in the feature branch.</li> <li><code class="language-plaintext highlighter-rouge">fixed.json</code>: Contains issues found in the master branch but not in the feature branch.</li> <li><code class="language-plaintext highlighter-rouge">preexisting.json</code>: Contains issues found in both branches.</li> </ol> <h3 id="addressing-bugs">Addressing Bugs:</h3> <p>Next, follow these step to address the bugs introduced in the new feature branch:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Save the master branch's analysis report</span>
 <span class="nv">$ </span><span class="nb">cp </span>infer-out/report.json report-master.json
 
 <span class="c"># Return to the feature branch</span>
@@ -402,49 +141,4 @@ clang <span class="nt">-c</span> proj01.c
 <span class="c"># Compare the reports</span>
 <span class="nv">$ </span>infer reportdiff <span class="nt">--report-current</span> infer-out/report.json <span class="se">\</span>
 <span class="nt">--report-previous</span> report-master.json
-</code></pre></div></div>
-
-<p>Ensure that Infer does not produce any warnings, and the <code class="language-plaintext highlighter-rouge">introduces.json</code> file is empty indicating successful bug resolution.</p>]]></content><author><name></name></author><category term="code" /><summary type="html"><![CDATA[Introduction]]></summary></entry><entry><title type="html">Advances in Symbolic Execution: A Workshop on C, JavaScript, and WebAssembly</title><link href="https://filipeom.github.io/blog/2022/sew/" rel="alternate" type="text/html" title="Advances in Symbolic Execution: A Workshop on C, JavaScript, and WebAssembly" /><published>2022-04-13T00:00:00+00:00</published><updated>2022-04-13T00:00:00+00:00</updated><id>https://filipeom.github.io/blog/2022/sew</id><content type="html" xml:base="https://filipeom.github.io/blog/2022/sew/"><![CDATA[<h1 id="program-schedule">Program Schedule</h1>
-
-<hr />
-
-<h3 id="900-am---1030-am---symbolic-execution-for-webassembly-and-c">9:00 AM - 10:30 AM - Symbolic Execution for WebAssembly and C</h3>
-
-<ol>
-  <li>20 mins - João Borges - Static Symbolic Execution</li>
-  <li>20 mins - Filipe Marques - Concolic Execution</li>
-  <li>20 mins - Francisco Sena - Parameterized Execution</li>
-</ol>
-
-<hr />
-
-<h3 id="1100-am---1200-pm---summaries-in-symbolic-execution">11:00 AM - 12:00 PM - Summaries in Symbolic Execution</h3>
-
-<ol>
-  <li>20 mins - Frederico Ramos - Summaries for Symbolic Execution</li>
-  <li>20 mins - Manuel Costa - Symbolic Summaries for JavaScript</li>
-  <li>20 mins - Rafael Gonçalves - Synthesizing Symbolic Summaries</li>
-</ol>
-
-<hr />
-
-<h3 id="1200-pm---130-pm----lunch">12:00 PM - 1:30 PM  - Lunch</h3>
-
-<hr />
-
-<h3 id="130-pm---300-pm---symbolic-execution-for-javascript">1:30 PM - 3:00 PM - Symbolic Execution for JavaScript</h3>
-
-<ol>
-  <li>20 mins - André Nascimento - ECMA-SL: An Intermediate Representation for JavaScript Analysis</li>
-  <li>20 mins - Filipe Marques - Symbolic Execution for JavaScript</li>
-  <li>20 mins - Miguel Monteiro - Explode.js: Identifying Security Vulnerabilities in Node.js Applications via Symbolic Execution</li>
-</ol>
-
-<hr />
-
-<h3 id="300-pm---600-pm---symbolic-memory-models">3:00 PM - 6:00 PM - Symbolic Memory Models</h3>
-
-<ol>
-  <li>20 mins - André Mendes - Symbolic Memory Models for C Language</li>
-  <li>20 mins - Tutorial: Implementing 3 Symbolic Memory Models in While Language</li>
-</ol>]]></content><author><name></name></author><category term="workshops" /><summary type="html"><![CDATA[Program Schedule]]></summary></entry></feed>
+</code></pre></div></div> <p>Ensure that Infer does not produce any warnings, and the <code class="language-plaintext highlighter-rouge">introduces.json</code> file is empty indicating successful bug resolution.</p>]]></content><author><name></name></author><category term="code"/><summary type="html"><![CDATA[Introduction]]></summary></entry><entry><title type="html">Advances in Symbolic Execution: A Workshop on C, JavaScript, and WebAssembly</title><link href="https://www.filipeom.dev/blog/2022/sew/" rel="alternate" type="text/html" title="Advances in Symbolic Execution: A Workshop on C, JavaScript, and WebAssembly"/><published>2022-04-13T00:00:00+00:00</published><updated>2022-04-13T00:00:00+00:00</updated><id>https://www.filipeom.dev/blog/2022/sew</id><content type="html" xml:base="https://www.filipeom.dev/blog/2022/sew/"><![CDATA[<h1 id="program-schedule">Program Schedule</h1> <hr/> <h3 id="900-am---1030-am---symbolic-execution-for-webassembly-and-c">9:00 AM - 10:30 AM - Symbolic Execution for WebAssembly and C</h3> <ol> <li>20 mins - João Borges - Static Symbolic Execution</li> <li>20 mins - Filipe Marques - Concolic Execution</li> <li>20 mins - Francisco Sena - Parameterized Execution</li> </ol> <hr/> <h3 id="1100-am---1200-pm---summaries-in-symbolic-execution">11:00 AM - 12:00 PM - Summaries in Symbolic Execution</h3> <ol> <li>20 mins - Frederico Ramos - Summaries for Symbolic Execution</li> <li>20 mins - Manuel Costa - Symbolic Summaries for JavaScript</li> <li>20 mins - Rafael Gonçalves - Synthesizing Symbolic Summaries</li> </ol> <hr/> <h3 id="1200-pm---130-pm----lunch">12:00 PM - 1:30 PM - Lunch</h3> <hr/> <h3 id="130-pm---300-pm---symbolic-execution-for-javascript">1:30 PM - 3:00 PM - Symbolic Execution for JavaScript</h3> <ol> <li>20 mins - André Nascimento - ECMA-SL: An Intermediate Representation for JavaScript Analysis</li> <li>20 mins - Filipe Marques - Symbolic Execution for JavaScript</li> <li>20 mins - Miguel Monteiro - Explode.js: Identifying Security Vulnerabilities in Node.js Applications via Symbolic Execution</li> </ol> <hr/> <h3 id="300-pm---600-pm---symbolic-memory-models">3:00 PM - 6:00 PM - Symbolic Memory Models</h3> <ol> <li>20 mins - André Mendes - Symbolic Memory Models for C Language</li> <li>20 mins - Tutorial: Implementing 3 Symbolic Memory Models in While Language</li> </ol>]]></content><author><name></name></author><category term="workshops"/><summary type="html"><![CDATA[Program Schedule]]></summary></entry></feed>

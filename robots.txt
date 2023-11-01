@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://filipeom.github.io/sitemap.xml
+Sitemap: https://www.filipeom.dev/sitemap.xml
