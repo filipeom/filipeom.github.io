@@ -2,8 +2,9 @@ github_users:
   - filipeom
 
 github_repos:
-  - formalsec/wasp
-  - formalsec/encoding
+  - formalsec/smtml
   - OCamlPro/owi
-  - formalsec/waspc
-  - filipeom/WhileVis
+  - formalsec/graphjs
+  - formalsec/wasp
+  - formalsec/explodejs
+  - filipeom/.files
