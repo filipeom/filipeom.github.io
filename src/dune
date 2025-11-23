@@ -1,7 +1,6 @@
 (executable
  (public_name blogger)
  (name main)
- (modules :standard \ std)
  (libraries
   bos
   cmdliner
@@ -9,16 +8,10 @@
   eio
   eio_main
   fpath
-  std
   logs.fmt
   jingoo
   yaml
   ppx_deriving
   ppx_deriving_yaml)
- (flags (:standard -open Std))
  (preprocess
   (pps ppx_deriving.make ppx_deriving.show ppx_deriving_yaml)))
-
-(library
- (name std)
- (modules std))
