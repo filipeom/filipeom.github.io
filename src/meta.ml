@@ -1,5 +1,4 @@
 let parse lines =
-  let open Result.Syntax in
   let in_metadata = ref false in
   let rec loop (meta, content) = function
     | [] -> (meta, content)
@@ -14,6 +13,8 @@ let parse lines =
   in
   let lines = List.map String.trim lines in
   let meta, content = loop ([], []) lines in
-  let* meta = String.concat "\n" @@ List.rev meta |> Yaml.of_string in
+  let meta =
+    String.concat "\n" @@ List.rev meta |> Yaml.of_string |> Result.get_ok
+  in
   let content = String.concat "\n" @@ List.rev content in
-  Ok (meta, content)
+  (meta, content)

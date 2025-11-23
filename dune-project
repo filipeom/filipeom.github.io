@@ -13,12 +13,15 @@
 
 (package
  (name blogger)
- (synopsis "Blogger")
+ (synopsis
+  "A direct-style concurrency static blog generator for OCaml using Eio.")
  (depends
   dune
   cmdliner
   (ocaml
-   (>= "5.3.0"))
+   (>= "5.4.0"))
+  eio
+  eio_main
   bos
   cmdliner
   cmarkit

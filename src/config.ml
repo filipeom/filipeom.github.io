@@ -27,6 +27,6 @@ let models config =
 
 let from_file file =
   let open Result.Syntax in
-  let* content = Bos.OS.File.read file in
+  let content = Eio.Path.load file in
   let* yaml = Yaml.of_string content in
   of_yaml yaml

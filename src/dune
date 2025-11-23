@@ -6,6 +6,8 @@
   bos
   cmdliner
   cmarkit
+  eio
+  eio_main
   fpath
   std
   logs.fmt
