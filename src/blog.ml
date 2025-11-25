@@ -76,6 +76,8 @@ let create_pages ~dir config () =
   if Path.is_file path && Filename.check_suffix basename "md" then
     create_page ~dir config path
 
+let create_blog ~dir:_ () = ()
+
 let init () =
   Logs.set_reporter (Logs_fmt.reporter ());
   Logs.set_level (Some Logs.Debug)
@@ -87,4 +89,5 @@ let build () =
   let dir = Eio.Stdenv.cwd env in
   let+ config = Config.from_file (Source.config ~dir) in
   Logs.debug (fun m -> m "using config:@; %a" Config.pp config);
-  Eio.Fiber.all [ create_assets ~dir; create_pages ~dir config ]
+  Eio.Fiber.all
+    [ create_assets ~dir; create_pages ~dir config; create_blog ~dir ]
