@@ -71,7 +71,13 @@ let create_page ~dir (config : Config.t) file =
   Path.save ~create:(`If_missing 0o644) target_file document
 
 let create_pages ~dir config () =
-  Path.iter (Source.pages ~dir) @@ fun path ->
+  Path.iter Path.(dir / "pages") @@ fun path ->
+  let _, basename = Path.split path |> Option.get in
+  if Path.is_file path && Filename.check_suffix basename "md" then
+    create_page ~dir config path
+
+let create_posts ~dir config () =
+  Path.iter Path.(dir / "posts") @@ fun path ->
   let _, basename = Path.split path |> Option.get in
   if Path.is_file path && Filename.check_suffix basename "md" then
     create_page ~dir config path
@@ -87,4 +93,5 @@ let build () =
   let dir = Eio.Stdenv.cwd env in
   let+ config = Config.from_file (Source.config ~dir) in
   Logs.debug (fun m -> m "using config:@; %a" Config.pp config);
-  Eio.Fiber.all [ create_assets ~dir; create_pages ~dir config ]
+  Eio.Fiber.all
+    [ create_assets ~dir; create_pages ~dir config; create_posts ~dir config ]
