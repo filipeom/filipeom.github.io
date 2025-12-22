@@ -5,7 +5,7 @@ page_title: Publications
 
 ## Papers
 
-- _Smt.ml: A Multi-Backend Frontend for SMT Solvers in OCaml._ João Madeira Pereira, **Filipe Marques**, Pedro Adão, Hichem Rami Ait-El-Hara, Léo Andrès, Arthur Carcano, Pierre Chambart, Petar Maksimović, Nuno Santos, and José Fragoso Santos. In review. \[[pdf](/pdf/pereira-tacas26.pdf)\]\[[code](https://github.com/formalsec/smtml)\]
+- _Smt.ml: A Multi-Backend Frontend for SMT Solvers in OCaml._ João Madeira Pereira, **Filipe Marques**, Pedro Adão, Hichem Rami Ait-El-Hara, Léo Andrès, Arthur Carcano, Pierre Chambart, Petar Maksimović, Nuno Santos, and José Fragoso Santos. In Tools and Algorithms for the Construction and Analysis of Systems (TACAS'26). \[[pdf](/pdf/pereira-tacas26.pdf)\]\[[code](https://github.com/formalsec/smtml)\]
 
 - _Automated Exploit Generation for Node.js Packages._ **Filipe Marques**, Mafalda Ferreira, André Nascimento, Miguel Coimbra, Nuno Santos, Limin Jia, and José Fragoso Santos. In the Proceedings of the 46th ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI'25). \[[pdf](/pdf/marques_pldi25.pdf)\]\[[code](https://github.com/formalsec/explode-js)\]
 
