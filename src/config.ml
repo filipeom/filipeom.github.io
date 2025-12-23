@@ -18,10 +18,6 @@ let models_author (author : author) =
 
 type t = { author : author } [@@deriving make, show, yaml]
 
-let entity_name = "Config"
-
-let neutral = Ok (make ~author:(make_author ()))
-
 let models config =
   Jingoo_build.Types.[ ("author", obj (models_author config.author)) ]
 
