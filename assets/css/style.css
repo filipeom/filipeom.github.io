@@ -208,3 +208,58 @@ article td {
   border-radius: 8px; /* Optional: gives the photo rounded corners */
   height: auto;
 }
+
+/* Container for the vertical stack */
+.post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between the boxes */
+    margin-top: 40px;
+}
+
+/* Individual Box Styling */
+.post-card {
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 24px;
+    transition: all 0.2s ease-in-out;
+    display: block; /* Ensures the whole box is clickable */
+}
+
+/* Hover Effect: subtle lift and border color change */
+.post-card:hover {
+    border-color: var(--color-primary);
+    transform: translateX(4px); /* Moves slightly right instead of up for a list feel */
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.post-title {
+    margin: 0 0 8px 0;
+    font-size: 1.3rem;
+    color: var(--color-text);
+    font-family: var(--font-slab);
+}
+
+.post-description {
+    margin: 0 0 16px 0;
+    font-size: 1rem;
+    color: var(--color-text);
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+.post-meta {
+    font-size: 0.85rem;
+    color: var(--color-meta);
+    font-family: var(--font-mono);
+    display: flex;
+    align-items: center;
+}
+
+/* Adds a small dash before the date placeholder if you want that academic look */
+.post-date-placeholder::before {
+    content: "• ";
+    margin-right: 4px;
+}
