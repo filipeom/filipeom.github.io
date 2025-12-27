@@ -1,7 +1,8 @@
 ---
-layout: base
+layout: post
 page_title: "Static Analysis Lab: C"
-description: "This script was made for the 2023/2024 Software Specification course at Instituto Superior Técnico."
+summary: "This script was made for the 2023/2024 Software Specification course at Instituto Superior Técnico."
+date: 2023-10-02
 ---
 
 # Introduction

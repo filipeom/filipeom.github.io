@@ -9,8 +9,8 @@ page_title: Blog
       <div class="post-card-content">
         <h3 class="post-title">{{ post.page_title }}</h3>
 
-        {% if post.description %}
-          <p class="post-description">{{ post.description }}</p>
+        {% if post.summary %}
+          <p class="post-description">{{ post.summary }}</p>
         {% endif %}
       </div>
 
