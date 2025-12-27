@@ -62,19 +62,64 @@ let render_document ~dir config content page_data =
   let template_file = Source.template ~dir "document.html" in
   Jingoo.Jg_template.from_string ~models @@ Path.load template_file
 
-let create_page ~dir (config : Config.t) file =
-  let target_file = Source.as_html (Target.site ~dir) file in
+let create_page ~dir ?target_dir (config : Config.t) file =
+  let target_dir =
+    match target_dir with
+    | None -> Target.site ~dir
+    | Some target_dir -> target_dir
+  in
+  let target_file = Source.as_html target_dir file in
   Logs.debug (fun m -> m "creating page: %a" Path.pp target_file);
   let page_data, html_content = process_markdown file in
   let content = render_content ~dir page_data html_content in
   let document = render_document ~dir config content page_data in
-  Path.save ~create:(`If_missing 0o644) target_file document
+  Path.save ~create:(`If_missing 0o644) target_file document;
+  (page_data, target_file)
 
 let create_pages ~dir config () =
-  Path.iter (Source.pages ~dir) @@ fun path ->
+  Path.iter Path.(dir / "pages") @@ fun path ->
   let _, basename = Path.split path |> Option.get in
   if Path.is_file path && Filename.check_suffix basename "md" then
-    create_page ~dir config path
+    ignore (create_page ~dir config path)
+
+let create_posts ~dir ~target_dir config =
+  let posts = ref [] in
+  Path.iter
+    Path.(dir / "blog" / "posts")
+    (fun path ->
+      let _, basename = Path.split path |> Option.get in
+      if Path.is_file path && Filename.check_suffix basename "md" then
+        let post = create_page ~dir ~target_dir config path in
+        posts := post :: !posts );
+  !posts
+
+let create_blog_index ~dir ~target_dir config posts =
+  let blog_index = Path.(dir / "blog" / "index.md") in
+  let target_file = Source.as_html target_dir blog_index in
+  let page_data, html_content = process_markdown blog_index in
+  let models =
+    let open Jingoo_build.Types in
+    List.map
+      (fun (page_data, path) ->
+        let page_models = Page.models page_data in
+        let _, post_path = Path.split path |> Option.get in
+        let page_models =
+          ("url", string (Filename.concat "/blog" post_path)) :: page_models
+        in
+        obj page_models )
+      posts
+  in
+  let models = Jingoo_build.Types.[ ("posts", list models) ] in
+  let html_content = Jingoo.Jg_template.from_string ~models html_content in
+  let content = render_content ~dir page_data html_content in
+  let document = render_document ~dir config content page_data in
+  Path.save ~create:(`If_missing 0o644) target_file document
+
+let create_blog ~dir config () =
+  let target_dir = Path.(Target.site ~dir / "blog") in
+  Path.mkdirs ~exists_ok:true ~perm:0o755 target_dir;
+  let posts = create_posts ~dir ~target_dir config in
+  create_blog_index ~dir ~target_dir config posts
 
 let init () =
   Logs.set_reporter (Logs_fmt.reporter ());
@@ -87,4 +132,5 @@ let build () =
   let dir = Eio.Stdenv.cwd env in
   let+ config = Config.from_file (Source.config ~dir) in
   Logs.debug (fun m -> m "using config:@; %a" Config.pp config);
-  Eio.Fiber.all [ create_assets ~dir; create_pages ~dir config ]
+  Eio.Fiber.all
+    [ create_assets ~dir; create_pages ~dir config; create_blog ~dir config ]
