@@ -11,6 +11,7 @@
   logs.fmt
   jingoo
   yaml
+  ptime
   ppx_deriving
   ppx_deriving_yaml)
  (preprocess

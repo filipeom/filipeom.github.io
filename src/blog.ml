@@ -43,7 +43,12 @@ let process_markdown file =
   let meta, content = Meta.parse lines in
   let doc = Cmarkit.Doc.of_string content in
   let html_content = Cmarkit_html.of_doc ~safe:false doc in
-  let page_data = Page.of_yaml meta |> Result.get_ok in
+  let page_data =
+    Page.of_yaml meta
+    |> Result.map_error (fun (`Msg err) ->
+      Logs.err (fun m -> m "Could not parse yaml metadata: %s" err) )
+    |> Result.get_ok
+  in
   (page_data, html_content)
 
 let render_content ~dir page_data html_content =
@@ -91,7 +96,17 @@ let create_posts ~dir ~target_dir config =
       if Path.is_file path && Filename.check_suffix basename "md" then
         let post = create_page ~dir ~target_dir config path in
         posts := post :: !posts );
-  !posts
+  (* Sort most recent first *)
+  List.sort
+    (fun (a, _) (b, _) ->
+      match (a, b) with
+      | Page.Post a, Post b ->
+        (* FIXME: Support posts without date and push them to the bottom *)
+        let a = Option.get a.date |> Ptime.to_float_s in
+        let b = Option.get b.date |> Ptime.to_float_s in
+        Float.compare b a
+      | _ -> assert false )
+    !posts
 
 let create_blog_index ~dir ~target_dir config posts =
   let blog_index = Path.(dir / "blog" / "index.md") in
