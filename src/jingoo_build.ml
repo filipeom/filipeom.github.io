@@ -3,6 +3,8 @@ module Types = struct
 
   let string s = Jingoo.Jg_types.Tstr s
 
+  let ptime s = Jingoo.Jg_types.Tstr (Fmt.str "%a" Datetime.pp s)
+
   let list l = Jingoo.Jg_types.Tlist l
 
   let obj fields = Jingoo.Jg_types.Tobj fields

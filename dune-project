@@ -29,5 +29,6 @@
   logs
   jingoo
   yaml
+  ptime
   ppx_deriving
   ppx_deriving_yaml))

@@ -33,7 +33,7 @@ module Post = struct
     { page_title : string option
     ; description : string option
     ; summary : string option
-    ; date : string option
+    ; date : Datetime.t option
     }
   [@@deriving make, show, yaml ~skip_unknown]
 
@@ -42,7 +42,7 @@ module Post = struct
       [ ("page_title", option string page.page_title)
       ; ("description", option string page.description)
       ; ("summary", option string page.summary)
-      ; ("date", option string page.date)
+      ; ("date", option ptime page.date)
       ]
 end
 
