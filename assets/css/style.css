@@ -209,6 +209,8 @@ article td {
   height: auto;
 }
 
+/* Style for the landing page of the blog */
+
 /* Container for the vertical stack */
 .post-list {
     display: flex;
@@ -262,4 +264,33 @@ article td {
 .post-date-placeholder::before {
     content: "• ";
     margin-right: 4px;
+}
+
+/* Style for code blocks in blog posts */
+
+/* Styles the outer box */
+pre {
+    background-color: #eee; /* Changed from #2d2d2d */
+    border: 1px solid #ccc; /* Added to define the edges of the light box */
+    border-radius: 6px;
+    padding: 1.5em;
+    overflow: auto; /* Adds scrollbars if code is too long */
+    margin: 1em 0;
+}
+
+/* Styles the text inside */
+code {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 0.95em;
+    color: #333; /* Changed from #f8f8f2 for readability on light grey */
+    line-height: 1.5;
+}
+
+/* Optional: Style for inline <code> tags in your paragraphs */
+p code {
+    background-color: #eee;
+    color: #c7254e;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
 }
