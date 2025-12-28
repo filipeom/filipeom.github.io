@@ -17,9 +17,9 @@ Before we dive into the lab exercises, let's briefly discuss some essential conc
 #include <stdlib.h>
 
 int main() {
-	int* ptr = NULL;
-	*ptr = 42; // This is a null pointer dereference
-	return 0;
+    int* ptr = NULL;
+    *ptr = 42; // This is a null pointer dereference
+    return 0;
 }
 ```
 
@@ -215,14 +215,14 @@ Upon running the command, you should see an output similar to the following:
 
 ```bash
 hello.c:5:8: warning: Dereference of null pointer (loaded from variable
-	'ptr') [core.NullDereference]
+    'ptr') [core.NullDereference]
   *ptr = 42;
    ~~~ ^
 1 warning generated.
 scan-build: Analysis run complete.
 scan-build: 1 bug found.
 scan-build: Run 'scan-view /tmp/scan-build-2023-10-01-094934-161859-1'
-	to examine bug reports.
+    to examine bug reports.
 ```
 
 The output provides an initial summary of detected issues. To gain a more comprehensive understanding of these issues, you can examine the bug reports using `scan-view`. Execute the following command, replacing the path with the appropriate directory:
