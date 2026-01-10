@@ -4,15 +4,16 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <!-- Display title -->
-    <title>
-      {{ page_title }}
-    </title>
+    <title>{{ page_title }}</title>
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
-    <!-- We iterate over the metatags calculated to display them -->
-    {%- for m in meta-%}
-    <meta name="{{m.name}}" content="{{m.content}}" />
-    {%- endfor -%}
+    <meta name="description" content="{{ description }}">
+    <meta name="author" content="Filipe Marques">
+
+    <meta property="og:title" content="{{ page_title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:type" content="website">
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- We use Google font to load the typography, which is a bit sad,
          but it avoids making the repo code too long for an example. -->
@@ -31,6 +32,24 @@
     <!-- Specific CSS stylesheets -->
     <link rel="stylesheet" href="/css/reset.css" />
     <link rel="stylesheet" href="/css/style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org/",
+        "@type": "Person",
+        "name": "Filipe Marques",
+        "jobTitle": "PhD Student",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "INESC-ID / Instituto Superior Técnico"
+        },
+        "url": "https://www.filipeom.dev",
+        "sameAs": [
+          "https://github.com/{{ author.github }}",
+          "https://orcid.org/{{ author.orcid }}",
+          "https://www.linkedin.com/in/{{ author.linkedin }}"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div class="layout">
