@@ -12,7 +12,7 @@ let of_string s =
 let pp fmt x = (Ptime.pp_human ()) fmt x
 
 let of_yaml yaml =
-  Logs.debug (fun m -> m "Parsing date: %a" Yaml.pp yaml);
+  (* Logs.debug (fun m -> m "Parsing date: %a" Yaml.pp yaml); *)
   match yaml with
   | `String time -> of_string (String.trim time)
   | _ -> Error (`Msg "could not parse ptime out of yaml")
