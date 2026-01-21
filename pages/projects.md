@@ -5,7 +5,11 @@ page_title: Projects
 
 Here is a list of projects I contribute to or have contributed to.
 
-## GitHub Repositories
+## Small experiments
+
+- [Wasm vs JS Interaction Benchmak](/wasm-dom)
+
+## Open Source Projects
 
 - [OCamlPro/owi](https://github.com/OCamlPro/owi)
 - [formalsec/smtml](https://github.com/formalsec/smtml)
