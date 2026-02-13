@@ -8,6 +8,7 @@ Here is a list of projects I contribute to or have contributed to.
 ## Small experiments
 
 - [Wasm vs JS Interaction Benchmak](/wasm-dom)
+- [Will you be my valentine?](/pedido)
 
 ## Open Source Projects
 
