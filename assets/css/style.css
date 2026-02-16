@@ -1,25 +1,23 @@
 /* --- 1. Global Styles & Variables --- */
 :root {
-    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --font-mono: "Roboto Mono", monospace;
-    --font-slab: "Roboto Slab", serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: 'Fira Code', "Roboto Mono", monospace;
+    --font-slab: 'Lora', "Roboto Slab", serif;
 
-    /* Softer, elegant color palette */
-    --color-text: #333333; /* Dark gray instead of pure black */
-    --color-background: #fdfdfd; /* Slightly off-white */
-    --color-primary: #0056b3; /* A muted, professional blue for links/accents */
-    --color-border: #dddddd; /* Lighter border color */
-    --color-meta: #666666; /* For less important text like dates/tags */
-}
-
+            /* Refined, modern color palette */
+            --color-text: #2c3e50; /* Darker text for better contrast */
+            --color-background: #ffffff; /* Pure white background */
+            --color-primary: #3498db; /* A vibrant yet professional blue */
+            --color-border: #e0e0e0; /* Subtle border color */
+            --color-meta: #7f8c8d; /* Muted gray for secondary text */
+        }
 body {
-    font-family: var(--font-sans);
-    background-color: var(--color-background);
-    color: var(--color-text);
-    line-height: 1.6; /* Increased line-height for readability */
-    font-size: 16px; /* Set a base font size */
-}
-
+        font-family: var(--font-sans);
+        background-color: var(--color-background);
+        color: var(--color-text);
+        line-height: 1.7; /* Slightly more line-height for comfort */
+        font-size: 17px; /* Slightly larger base font size */
+    }
 /* --- 2. Layout --- */
 .layout {
     max-width: 800px; /* Narrower max-width for better readability on large screens */
@@ -128,11 +126,8 @@ article a:hover {
 }
 
 article p {
-  /* Increase this value from 24px to something larger.
-       Using 'em' is great because it scales with the font size. */
-    margin-bottom: 1.5em; /* Roughly 26.4px, a noticeable increase */
-}
-
+        margin-bottom: 1.6em; /* Slightly more spacing between paragraphs */
+    }
 /* ... keep your well-defined article h1-h6, table, blockquote styles ... */
 /* You may want to adjust their colors to use your new variables */
 article h1, article h2, article h3, article h4, article h5, article h6 {
@@ -266,31 +261,22 @@ article td {
     margin-right: 4px;
 }
 
-/* Style for code blocks in blog posts */
-
-/* Styles the outer box */
-pre {
-    background-color: #eee; /* Changed from #2d2d2d */
-    border: 1px solid #ccc; /* Added to define the edges of the light box */
+/* Styles for code blocks with highlight.js */
+pre code.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 1.2em 1.5em;
     border-radius: 6px;
-    padding: 1.5em;
-    overflow: auto; /* Adds scrollbars if code is too long */
-    margin: 1em 0;
-}
-
-/* Styles the text inside */
-code {
-    font-family: 'Fira Code', 'Courier New', monospace;
-    font-size: 0.95em;
-    color: #333; /* Changed from #f8f8f2 for readability on light grey */
     line-height: 1.5;
+    font-size: 0.95em;
 }
 
-/* Optional: Style for inline <code> tags in your paragraphs */
-p code {
-    background-color: #eee;
-    color: #c7254e;
-    padding: 2px 4px;
-    border-radius: 4px;
-    font-family: monospace;
+/* Adjustments for inline code */
+p code, li code {
+    background-color: #f0f0f0; /* Lighter background for inline code */
+    color: #c7254e; /* Keep a distinct color */
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: var(--font-mono);
+    font-size: 0.9em;
 }

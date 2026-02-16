@@ -7,7 +7,8 @@ module Base = struct
 
   let models page =
     Jingoo_build.Types.
-      [ ("page_title", option string page.page_title)
+      [ ("layout", string "base")
+      ; ("page_title", option string page.page_title)
       ; ("description", option string page.description)
       ]
 end
@@ -22,7 +23,8 @@ module Index = struct
 
   let models page =
     Jingoo_build.Types.
-      [ ("page_title", option string page.page_title)
+      [ ("layout", string "index")
+      ; ("page_title", option string page.page_title)
       ; ("description", option string page.description)
       ; ("profile_photo", option string page.profile_photo)
       ]
@@ -39,7 +41,8 @@ module Post = struct
 
   let models page =
     Jingoo_build.Types.
-      [ ("page_title", option string page.page_title)
+      [ ("layout", string "post")
+      ; ("page_title", option string page.page_title)
       ; ("description", option string page.description)
       ; ("summary", option string page.summary)
       ; ("date", option ptime page.date)
