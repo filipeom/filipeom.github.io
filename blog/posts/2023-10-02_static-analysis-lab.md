@@ -88,6 +88,8 @@ In this code, the variable `x` is used in the `printf` statement before being in
 -  **clang-analyzer:** The [clang-analyzer](https://clang-analyzer.llvm.org/scan-build.html) is a part of the Clang compiler suite that provides static analysis capabilities. It is designed to detect various types of programming errors, including null-pointer dereferences, resource leaks, and more.
 - **Infer:** [Infer](https://fbinfer.com/) is another powerful static analysis tool, similar to the *clang-analyzer*, that we will use in this lab to automatically detect programming errors.
 
+<hr>
+
 Now that you have some context, let's proceed with setting up clang-analyzer and Infer and working on the lab exercises.
 
 ## Getting Started
@@ -186,6 +188,8 @@ $ cd lab-sa/exercise01/
 $ infer -- clang -c hello.c
 ```
 
+<hr>
+
 # Exercise 01: Hello, World!
 
 This exercise revolves around the program `hello.c`, which is provided alongside the project script in the `lab-sa/exercise01` directory.
@@ -235,6 +239,8 @@ Starting scan-view at: http://127.0.0.1:8181
 ```
 
 Running the command will start a web server at `http://127.0.0.1:8181` where you can examine the bug reports in a user-friendly interface. To access the reports, open a web browser and navigate to the provided URL.
+
+<hr>
 
 # Exercise 02: Infer Workflow
 
@@ -352,6 +358,8 @@ clang -c proj01.c
 ### Step 3: Review and Evaluate Reported Bugs
 
 After enabling each checker, carefully review the reported bugs. Determine whether these newly reported issues are true positives (actual problems) or false positives (incorrectly flagged). You can do this by examining the code and the specific checker warnings.
+
+<hr>
 
 # Optional: Continuous Integration with Infer
 
