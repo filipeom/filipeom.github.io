@@ -26,67 +26,87 @@ body {
 }
 
 /* --- 3. Header --- */
-header {
-    display: flex; /* Use flexbox to align title and nav */
-    justify-content: space-between;
+.main-header {
+    display: flex;
+    justify-content: space-between; /* Hamburger toggle (hidden) on left, nav & icons on right */
     align-items: center;
-    flex-wrap: wrap; /* Allow items to wrap on small screens */
-    padding: 32px 0 8px 0; /* Changed from '32px 0'. This reduces the space before the line. */
-    border-bottom: 1px solid var(--color-border); /* Subtle separator */
-    margin-bottom: 16px; /* Changed from '48px'. This moves the title up. */
+    padding: 32px 0 8px 0;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 16px;
+    position: relative; /* For dropdown positioning */
 }
 
-header nav ul {
+.main-nav {
+    display: flex; /* Display nav by default on desktop */
+    margin-right: auto; /* Pushes nav to the right, next to social icons */
+}
+
+.main-nav ul {
     padding: 0;
     margin: 0;
     list-style-type: none;
-    display: flex; /* Use flexbox for the nav items */
-    gap: 24px; /* Space between nav items */
+    display: flex;
+    align-items: center;
+    gap: 24px;
 }
 
-header nav ul > li {
-    /* Removed all the border styling */
-    display: inline-block;
-}
-
-header nav ul > li > a {
+.main-nav ul li a {
     text-decoration: none;
     color: var(--color-text);
     font-weight: 500;
     padding-bottom: 4px;
-    transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out; /* Smooth transition */
-    border-bottom: 2px solid transparent; /* Prepare for hover effect */
+    transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    border-bottom: 2px solid transparent;
 }
 
-header nav ul > li > a:hover {
+.main-nav ul li a:hover {
     color: var(--color-primary);
-    border-bottom-color: var(--color-primary); /* Elegant hover effect */
-}
-
-.site-identity {
-    display: flex;
-    align-items: center;
-    gap: 20px; /* Adjust the space between your name and the icons */
+    border-bottom-color: var(--color-primary);
 }
 
 .social-icons {
-  display: flex;
-  align-items: center;
-  gap: 18px; /* A little more space between icons */
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-left: 24px; /* Space between nav and icons */
 }
 
-/* Styling for each individual icon link */
 .social-icons a {
-  display: inline-block;
-  color: var(--color-meta); /* Use a defined variable for a subtle look */
-  font-size: 1.7rem; /* Control icon size with font-size */
-  transition: transform 0.2s ease-out, color 0.2s ease-out; /* Smoother transition */
+    display: inline-block;
+    color: var(--color-meta);
+    font-size: 1.7rem;
+    transition: transform 0.2s ease-out, color 0.2s ease-out;
 }
 
 /* The cool hover effect */
 .social-icons a:hover {
-  color: var(--color-primary); /* Use your primary color on hover */
-  transform: scale(1.2) translateY(-2px); /* Make it pop and lift slightly */
+    color: var(--color-primary);
+    transform: scale(1.2) translateY(-2px);
+}
+
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--color-text);
+    cursor: pointer;
+    padding: 0;
+}
+
+.page-header {
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+.page-header h1.slab {
+    font-size: 1.9rem;
+    margin-bottom: 4px;
+}
+
+.page-header h2.slab {
+    font-size: 1.3rem;
+    color: var(--color-meta);
 }
 
 /* --- 4. Footer --- */
@@ -279,4 +299,86 @@ p code, li code {
     border-radius: 3px;
     font-family: var(--font-mono);
     font-size: 0.9em;
+}
+
+/* --- 6. Mobile Responsiveness --- */
+@media (max-width: 600px) {
+    body {
+        font-size: 16px;
+    }
+
+    .layout {
+        padding: 0 16px;
+    }
+
+    .main-header {
+        justify-content: space-between;
+        flex-direction: row; /* Ensure items stay in a row */
+        align-items: center;
+        padding-top: 16px;
+    }
+
+    .menu-toggle {
+        display: block;
+        order: -1; /* Place hamburger on the far left */
+    }
+
+    .social-icons {
+        margin-left: 0; /* Remove left margin from desktop style */
+        /* It will naturally align to the right within the main-header */
+    }
+
+    .main-nav {
+        display: none; /* Hidden by default for mobile dropdown */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-background);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        z-index: 1000;
+        border-top: 1px solid var(--color-border);
+    }
+
+    .main-nav.active {
+        display: block; /* Show as a block element */
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .main-nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-nav ul li a {
+        display: block;
+        padding: 15px;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .main-nav ul li:last-child a {
+        border-bottom: none;
+    }
+
+    article {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .profile-picture {
+        float: none;
+        width: 60%;
+        max-width: 150px;
+        margin: 20px auto;
+        display: block;
+    }
+
+    pre code.hljs {
+        font-size: 0.85em;
+        padding: 1em;
+    }
 }

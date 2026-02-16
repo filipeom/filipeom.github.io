@@ -1,7 +1,7 @@
 ---
 layout: index
 page_title: Filipe Marques
-description: INESC-ID / IST, University of Lisbon
+description: INESC-ID / IST
 # In assets: img/
 profile_photo: family.jpg
 ---
